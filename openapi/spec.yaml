@@ -10,6 +10,70 @@ servers:
     description: The primary production server
 
 paths:
+  # Berries
+
+  /berry:
+    get:
+      description: 'Get a paginated list of berries'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /berry/{id}:
+    get:
+      description: 'Get a specific berry'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Berry details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/berry'
+
+  /berry-firmness:
+    get:
+      description: 'Get a paginated list of berry firmnesses'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /berry-firmness/{id}:
+    get:
+      description: 'Get a specific berry firmness'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Berry firmness details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/berry_firmness'
+
+  /berry-flavor:
+    get:
+      description: 'Get a paginated list of berry flavors'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /berry-flavor/{id}:
+    get:
+      description: 'Get a specific berry flavor'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Berry flavor details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/berry_flavor'
+
+  # Games
+
   /version:
     get:
       description: 'Get a paginated list of Pokémon game versions'
@@ -21,14 +85,7 @@ paths:
     get:
       description: 'Get a specific Pokémon game version'
       parameters:
-        - name: id
-          description: Either an ID number (integer) or slug (string) for this game version
-          in: path
-          required: true
-          schema:
-            type:
-              - string
-              - integer
+        - $ref: '#/components/parameters/identifier'
       responses:
         '200':
           description: A specific Pokémon game version
@@ -41,6 +98,8 @@ paths:
 
 components:
   schemas:
+    # Common
+
     api_resource:
       type: object
       properties:
@@ -106,6 +165,96 @@ components:
         - previous
         - results
 
+    name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+    
+    # Berries
+
+    berry:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        growth_time:
+          type: integer
+        max_harvest:
+          type: integer
+        natural_gift_power:
+          type: integer
+        size:
+          type: integer
+        smoothness:
+          type: integer
+        soil_dryness:
+          type: integer
+        firmness:
+          $ref: '#/components/schemas/named_api_resource'
+        flavors:
+          type: array
+          items:
+            $ref: '#/components/schemas/berry_flavor_map'
+        item:
+          $ref: '#/components/schemas/named_api_resource'
+        natural_gift_type:
+          $ref: '#/components/schemas/named_api_resource'
+
+    berry_flavor_map:
+      type: object
+      properties:
+        potency:
+          type: integer
+        flavor:
+          $ref: '#/components/schemas/named_api_resource'
+
+    flavor_berry_map:
+      type: object
+      properties:
+        potency:
+          type: integer
+        berry:
+          $ref: '#/components/schemas/named_api_resource'
+
+    berry_firmness:
+      type: object
+      properties:
+        id:
+          type: integer
+        name: 
+          type: string
+        berries:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    berry_flavor:
+      type: object
+      properties:
+        id:
+          type: integer
+        name: 
+          type: string
+        berries:
+          $ref: '#/components/schemas/flavor_berry_map'
+        content_type:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        
+    # Games
+
     version:
       type: object
       properties:
@@ -139,3 +288,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/named_api_resource_list'
+
+  parameters:
+    identifier:
+      name: id
+      description: Either an ID number (integer) or slug (string) for this resource
+      in: path
+      required: true
+      schema:
+        type:
+          - string
+          - integer
