@@ -72,6 +72,68 @@ paths:
               schema:
                 $ref: '#/components/schemas/berry_flavor'
 
+  # Contests
+
+  /contest-type:
+    get:
+      description: 'Get a paginated list of contest types'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /contest-type/{id}:
+    get:
+      description: 'Get a contest type'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Contest type details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contest_type'
+
+  /contest-effect:
+    get:
+      description: 'Get a paginated list of contest effects'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /contest-effect/{id}:
+    get:
+      description: 'Get a contest effect'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Contest effect details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contest_effect'
+
+  /super-contest-effect:
+    get:
+      description: 'Get a paginated list of super contest effects'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /super-contest-effect/{id}:
+    get:
+      description: 'Get a super contest effect'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Super contest effect details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/super_contest_effect'
+
   # Games
 
   /version:
@@ -172,6 +234,24 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/named_api_resource'
+
+    effect:
+      type: object
+      properties:
+        effect:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+
+    flavor_text:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+        version:
+          $ref: '#/components/schemas/named_api_resource'
     
     # Berries
 
@@ -252,6 +332,66 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/name'
+
+    # Contests
+
+    contest_type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berry_flavor:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/contest_name'
+
+    contest_name:
+      type: object
+      properties:
+        name:
+          type: string
+        color:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+
+    contest_effect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        jam:
+          type: integer
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/effect'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/flavor_text'
+
+    super_contest_effect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/flavor_text'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
         
     # Games
 
