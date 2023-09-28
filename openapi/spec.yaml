@@ -220,6 +220,46 @@ paths:
 
   # Games
 
+  /generation:
+    get:
+      description: 'Get a paginated list of Pokémon game generations'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /generation/{id}:
+    get:
+      description: 'Get a specific Pokémon game generation'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific Pokémon game generation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generation'
+
+  /pokedex:
+    get:
+      description: 'Get a paginated list of Pokémon game pokedexes'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /pokedex/{id}:
+    get:
+      description: 'Get a specific Pokémon game pokedex'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific Pokémon game pokedex
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pokedex'
+
   /version:
     get:
       description: 'Get a paginated list of Pokémon game versions'
@@ -239,6 +279,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/version'
+
+  /version-group:
+    get:
+      description: 'Get a paginated list of Pokémon game version groups'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /version-group/{id}:
+    get:
+      description: 'Get a specific Pokémon game version group'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific Pokémon game version group
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/version_group'
 
 
 
@@ -335,6 +395,14 @@ components:
         language:
           $ref: '#/components/schemas/named_api_resource'
         version:
+          $ref: '#/components/schemas/named_api_resource'
+
+    description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
           $ref: '#/components/schemas/named_api_resource'
     
     # Berries
@@ -605,6 +673,76 @@ components:
         
     # Games
 
+    generation:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        abilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        main_region:
+          $ref: '#/components/schemas/named_api_resource'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        
+    pokedex:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        is_main_series:
+          type: boolean
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pokemon_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_entry'
+        region:
+          $ref: '#/components/schemas/named_api_resource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_entry:
+      type: object
+      properties:
+        entry_number:
+          type: integer
+        pokemon_species:
+          $ref: '#/components/schemas/named_api_resource'
+
     version:
       type: object
       properties:
@@ -615,21 +753,37 @@ components:
         names:
           type: array
           items:
-            properties:
-              language:
-                $ref: '#/components/schemas/named_api_resource'
-              name:
-                type: string
-            required:
-              - language
-              - name
+            $ref: '#/components/schemas/name'
         version_group:
           $ref: '#/components/schemas/named_api_resource'
-      required:
-        - id
-        - name
-        - names
-        - version_group
+
+    version_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        generation:
+          $ref: '#/components/schemas/named_api_resource'
+        move_learn_methods:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
 
   responses:
     named_resource_list:
