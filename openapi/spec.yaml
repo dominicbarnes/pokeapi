@@ -300,7 +300,107 @@ paths:
               schema:
                 $ref: '#/components/schemas/version_group'
 
+  # Items
 
+  /item:
+    get:
+      description: 'Get a paginated list of items'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /item/{id}:
+    get:
+      description: 'Get a specific item'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/item'
+
+  /item-attribute:
+    get:
+      description: 'Get a paginated list of item attributes'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /item-attribute/{id}:
+    get:
+      description: 'Get a specific item attribute'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific item attribute
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/item_attribute'
+
+  /item-category:
+    get:
+      description: 'Get a paginated list of item categorys'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /item-category/{id}:
+    get:
+      description: 'Get a specific item category'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific item category
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/item_category'
+
+  /item-fling-effect:
+    get:
+      description: 'Get a paginated list of item fling effects'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /item-fling-effect/{id}:
+    get:
+      description: 'Get a specific item fling effect'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific item fling effect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/item_fling_effect'
+
+  /item-pocket:
+    get:
+      description: 'Get a paginated list of item pockets'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /item-pocket/{id}:
+    get:
+      description: 'Get a specific item pocket'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific item pocket
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/item_pocket'
 
 components:
   schemas:
@@ -403,6 +503,30 @@ components:
         description:
           type: string
         language:
+          $ref: '#/components/schemas/named_api_resource'
+
+    version_group_flavor_text:
+      type: object
+      properties:
+        text:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+
+    generation_game_index:
+      type: object
+      properties:
+        game_index:
+          type: integer
+        generation:
+          $ref: '#/components/schemas/named_api_resource'
+
+    machine_version_detail:
+      type: object
+      properties:
+        machine:
+          $ref: '#/components/schemas/api_resource'
+        version_group:
           $ref: '#/components/schemas/named_api_resource'
     
     # Berries
@@ -784,6 +908,160 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/named_api_resource'
+
+    # Items
+
+    item:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        cost:
+          type: integer
+        fling_power:
+          type: integer
+        fling_effect:
+          $ref: '#/components/schemas/named_api_resource'
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        category:
+          $ref: '#/components/schemas/named_api_resource'
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/verbose_effect'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/version_group_flavor_text'
+        game_indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/generation_game_index'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        sprites:
+          $ref: '#/components/schemas/item_sprites'
+        held_by_pokemon:
+          type: array
+          items:
+            $ref: '#/components/schemas/item_holder_pokemon'
+        baby_trigger_for:
+          $ref: '#/components/schemas/api_resource'
+        machines:
+          type: array
+          items:
+            $ref: '#/components/schemas/machine_version_detail'
+
+    item_attribute:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+
+    item_category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pocket:
+          $ref: '#/components/schemas/named_api_resource'
+
+    item_fling_effect:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/effect'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    item_pocket:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    verbose_effect:
+      type: object
+      properties:
+        effect:
+          type: string
+        short_effect:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+    
+    item_sprites:
+      type: object
+      properties:
+        default:
+          type: string
+
+    item_holder_pokemon:
+      type: object
+      properties:
+        pokemon:
+          $ref: '#/components/schemas/named_api_resource'
+        version_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/item_holder_pokemon_version_detail'
+
+    item_holder_pokemon_version_detail:
+      type: object
+      properties:
+        rarity:
+          type: integer
+        version:
+          $ref: '#/components/schemas/named_api_resource'
 
   responses:
     named_resource_list:
