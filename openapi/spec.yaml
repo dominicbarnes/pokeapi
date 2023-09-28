@@ -176,6 +176,48 @@ paths:
               schema:
                 $ref: '#/components/schemas/encounter_condition_value'
   
+  # Evolution
+
+  /evolution-chain:
+    get:
+      description: 'Get a paginated list of evolution chains'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /evolution-chain/{id}:
+    get:
+      description: 'Get an evolution chain'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Evolution chain details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/evolution_chain'
+
+  /evolution-trigger:
+    get:
+      description: 'Get a paginated list of evolution triggers'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /evolution-trigger/{id}:
+    get:
+      description: 'Get an evolution trigger'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Evolution trigger details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/evolution_trigger'
+
   # Games
 
   /version:
@@ -480,6 +522,86 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/name'
+
+    # Evolution
+
+    evolution_chain:
+      type: object
+      properties:
+        id:
+          type: integer
+        baby_trigger_item:
+          $ref: '#/components/schemas/named_api_resource'
+        chain:
+          $ref: '#/components/schemas/chain_link'
+
+    chain_link:
+      type: object
+      properties:
+        is_baby:
+          type: boolean
+        species:
+          $ref: '#/components/schemas/named_api_resource'
+        evolution_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/evolution_detail'
+        evolves_to:
+          $ref: '#/components/schemas/chain_link'
+    
+    evolution_detail:
+      type: object
+      properties:
+        item:
+          $ref: '#/components/schemas/named_api_resource'
+        trigger:
+          $ref: '#/components/schemas/named_api_resource'
+        gender:
+          type: integer
+        held_item:
+          $ref: '#/components/schemas/named_api_resource'
+        known_move:
+          $ref: '#/components/schemas/named_api_resource'
+        known_move_type:
+          $ref: '#/components/schemas/named_api_resource'
+        location:
+          $ref: '#/components/schemas/named_api_resource'
+        min_level:
+          type: integer
+        min_happiness:
+          type: integer
+        min_beauty:
+          type: integer
+        min_affection:
+          type: integer
+        needs_overworld_rain:
+          type: boolean
+        party_species:
+          $ref: '#/components/schemas/named_api_resource'
+        party_type:
+          $ref: '#/components/schemas/named_api_resource'
+        relative_physical_stats:
+          type: integer
+        time_of_day:
+          type: string
+        trade_species:
+          $ref: '#/components/schemas/named_api_resource'
+        turn_upside_down:
+          type: boolean
+
+    evolution_trigger:
+      type: object
+      properties:
+        id: 
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pokemon_species:
+          $ref: '#/components/schemas/named_api_resource'
         
     # Games
 
