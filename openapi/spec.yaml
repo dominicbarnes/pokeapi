@@ -134,6 +134,48 @@ paths:
               schema:
                 $ref: '#/components/schemas/super_contest_effect'
 
+  # Encounters
+
+  /encounter-method:
+    get:
+      description: 'Get a paginated list of encounter methods'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /encounter-method/{id}:
+    get:
+      description: 'Get an encounter method'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Encounter method details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/encounter_method'
+
+  /encounter-condition-value:
+    get:
+      description: 'Get a paginated list of encounter condition values'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+    
+  /encounter-condition-value/{id}:
+    get:
+      description: 'Get an encounter condition value'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: Encounter condition value details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/encounter_condition_value'
+  
   # Games
 
   /version:
@@ -392,6 +434,52 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/named_api_resource'
+    
+    # Encounters
+
+    encounter_method:
+      type: object
+      properties:
+        id: 
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    encounter_condition:
+      type: object
+      properties:
+        id: 
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    encounter_condition_value:
+      type: object
+      properties:
+        id: 
+          type: integer
+        name:
+          type: string
+        condition:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
         
     # Games
 
