@@ -963,6 +963,28 @@ paths:
               schema:
                 $ref: '#/components/schemas/type'
 
+  # Utility
+
+  /language:
+    get:
+      description: 'Get a paginated list of langauges'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /language/{id}:
+    get:
+      description: 'Get a specific language'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: language details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/language'
+
 components:
   schemas:
     # Common
@@ -2779,6 +2801,26 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/named_api_resource'
+
+    # Utility
+
+    language:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        official:
+          type: boolean
+        iso639:
+          type: string
+        iso3166:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
 
   responses:
     named_resource_list:
