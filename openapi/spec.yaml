@@ -401,6 +401,88 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/item_pocket'
+  
+  # Locations
+
+  /location:
+    get:
+      description: 'Get a paginated list of locations'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /location/{id}:
+    get:
+      description: 'Get a specific location'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific location
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/location'
+
+  /location-area:
+    get:
+      description: 'Get a paginated list of location areas'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /location-area/{id}:
+    get:
+      description: 'Get a specific location area'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific location area
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/location_area'
+
+  /pal-park-area:
+    get:
+      description: 'Get a paginated list of pal park areas'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /pal-park-area/{id}:
+    get:
+      description: 'Get a specific pal park area'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pal park area
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pal_park_area'
+
+  /region:
+    get:
+      description: 'Get a paginated list of regions'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /region/{id}:
+    get:
+      description: 'Get a specific region'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific region
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/region'
 
 components:
   schemas:
@@ -1062,6 +1144,115 @@ components:
           type: integer
         version:
           $ref: '#/components/schemas/named_api_resource'
+    
+    # Locations
+
+    location:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        region:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        game_indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/generation_game_index'
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+    
+    location_area:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        encounter_method_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/encounter_method_rate'
+
+    pal_park_area:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pokemon_encounters:
+          type: array
+          items:
+            $ref: '#/components/schemas/pal_park_encounter_species'
+    
+    region:
+      type: object
+      properties:
+        id:
+          type: integer
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        main_generation:
+          $ref: '#/components/schemas/named_api_resource'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    encounter_method_rate:
+      type: object
+      properties:
+        encounter_method:
+          $ref: '#/components/schemas/named_api_resource'
+        version_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/encounter_version_details'
+
+    encounter_version_details:
+      type: object
+      properties:
+        rate:
+          type: integer
+        version:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pal_park_encounter_species:
+      type: object
+      properties:
+        base_score:
+          type: integer
+        rate:
+          type: integer
+        pokemon_species:
+          $ref: '#/components/schemas/named_api_resource'
+
 
   responses:
     named_resource_list:
