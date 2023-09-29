@@ -18,7 +18,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /berry/{id}:
     get:
       description: 'Get a specific berry'
@@ -38,7 +38,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /berry-firmness/{id}:
     get:
       description: 'Get a specific berry firmness'
@@ -58,7 +58,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /berry-flavor/{id}:
     get:
       description: 'Get a specific berry flavor'
@@ -80,7 +80,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /contest-type/{id}:
     get:
       description: 'Get a contest type'
@@ -100,7 +100,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /contest-effect/{id}:
     get:
       description: 'Get a contest effect'
@@ -120,7 +120,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /super-contest-effect/{id}:
     get:
       description: 'Get a super contest effect'
@@ -142,7 +142,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /encounter-method/{id}:
     get:
       description: 'Get an encounter method'
@@ -162,7 +162,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /encounter-condition-value/{id}:
     get:
       description: 'Get an encounter condition value'
@@ -175,7 +175,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/encounter_condition_value'
-  
+
   # Evolution
 
   /evolution-chain:
@@ -184,7 +184,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /evolution-chain/{id}:
     get:
       description: 'Get an evolution chain'
@@ -204,7 +204,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-    
+
   /evolution-trigger/{id}:
     get:
       description: 'Get an evolution trigger'
@@ -226,7 +226,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /generation/{id}:
     get:
       description: 'Get a specific Pokémon game generation'
@@ -246,7 +246,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /pokedex/{id}:
     get:
       description: 'Get a specific Pokémon game pokedex'
@@ -266,7 +266,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /version/{id}:
     get:
       description: 'Get a specific Pokémon game version'
@@ -286,7 +286,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /version-group/{id}:
     get:
       description: 'Get a specific Pokémon game version group'
@@ -308,7 +308,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /item/{id}:
     get:
       description: 'Get a specific item'
@@ -328,7 +328,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /item-attribute/{id}:
     get:
       description: 'Get a specific item attribute'
@@ -348,7 +348,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /item-category/{id}:
     get:
       description: 'Get a specific item category'
@@ -368,7 +368,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /item-fling-effect/{id}:
     get:
       description: 'Get a specific item fling effect'
@@ -388,7 +388,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /item-pocket/{id}:
     get:
       description: 'Get a specific item pocket'
@@ -401,7 +401,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/item_pocket'
-  
+
   # Locations
 
   /location:
@@ -410,7 +410,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /location/{id}:
     get:
       description: 'Get a specific location'
@@ -430,7 +430,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /location-area/{id}:
     get:
       description: 'Get a specific location area'
@@ -450,7 +450,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /pal-park-area/{id}:
     get:
       description: 'Get a specific pal park area'
@@ -470,7 +470,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /region/{id}:
     get:
       description: 'Get a specific region'
@@ -492,7 +492,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/named_resource_list'
-                
+
   /machine/{id}:
     get:
       description: 'Get a specific machine'
@@ -505,6 +505,148 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/machine'
+
+  # Moves
+
+  /move:
+    get:
+      description: 'Get a paginated list of moves'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /move/{id}:
+    get:
+      description: 'Get a specific move'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific move
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/move'
+
+  /move-ailment:
+    get:
+      description: 'Get a paginated list of move ailments'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /move-ailment/{id}:
+    get:
+      description: 'Get a specific move ailment'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific move ailment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/move_ailment'
+
+  /move-battle-style:
+    get:
+      description: 'Get a paginated list of move battle styles'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /move-battle-style/{id}:
+    get:
+      description: 'Get a specific move battle style'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific move battle style
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/move_battle_style'
+
+  /move-category:
+    get:
+      description: 'Get a paginated list of move categories'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /move-category/{id}:
+    get:
+      description: 'Get a specific move category'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific move category
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/move_category'
+
+  /move-damage-class:
+    get:
+      description: 'Get a paginated list of move damage classs'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /move-damage-class/{id}:
+    get:
+      description: 'Get a specific move damage class'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific move damage class
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/move_damage_class'
+
+  /move-learn-method:
+    get:
+      description: 'Get a paginated list of move learn methods'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /move-learn-method/{id}:
+    get:
+      description: 'Get a specific move learn method'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific move learn method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/move_learn_method'
+
+  /move-target:
+    get:
+      description: 'Get a paginated list of move targets'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /move-target/{id}:
+    get:
+      description: 'Get a specific move target'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific move target
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/move_target'
 
 components:
   schemas:
@@ -632,7 +774,7 @@ components:
           $ref: '#/components/schemas/api_resource'
         version_group:
           $ref: '#/components/schemas/named_api_resource'
-    
+
     # Berries
 
     berry:
@@ -686,7 +828,7 @@ components:
       properties:
         id:
           type: integer
-        name: 
+        name:
           type: string
         berries:
           type: array
@@ -702,7 +844,7 @@ components:
       properties:
         id:
           type: integer
-        name: 
+        name:
           type: string
         berries:
           $ref: '#/components/schemas/flavor_berry_map'
@@ -772,13 +914,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/named_api_resource'
-    
+
     # Encounters
 
     encounter_method:
       type: object
       properties:
-        id: 
+        id:
           type: integer
         name:
           type: string
@@ -792,7 +934,7 @@ components:
     encounter_condition:
       type: object
       properties:
-        id: 
+        id:
           type: integer
         name:
           type: string
@@ -808,7 +950,7 @@ components:
     encounter_condition_value:
       type: object
       properties:
-        id: 
+        id:
           type: integer
         name:
           type: string
@@ -844,7 +986,7 @@ components:
             $ref: '#/components/schemas/evolution_detail'
         evolves_to:
           $ref: '#/components/schemas/chain_link'
-    
+
     evolution_detail:
       type: object
       properties:
@@ -888,7 +1030,7 @@ components:
     evolution_trigger:
       type: object
       properties:
-        id: 
+        id:
           type: integer
         name:
           type: string
@@ -898,7 +1040,7 @@ components:
             $ref: '#/components/schemas/name'
         pokemon_species:
           $ref: '#/components/schemas/named_api_resource'
-        
+
     # Games
 
     generation:
@@ -934,7 +1076,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/named_api_resource'
-        
+
     pokedex:
       type: object
       properties:
@@ -1142,7 +1284,7 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/named_api_resource'
-    
+
     item_sprites:
       type: object
       properties:
@@ -1166,7 +1308,7 @@ components:
           type: integer
         version:
           $ref: '#/components/schemas/named_api_resource'
-    
+
     # Locations
 
     location:
@@ -1190,7 +1332,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/named_api_resource'
-    
+
     location_area:
       type: object
       properties:
@@ -1220,7 +1362,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/pal_park_encounter_species'
-    
+
     region:
       type: object
       properties:
@@ -1274,7 +1416,7 @@ components:
           type: integer
         pokemon_species:
           $ref: '#/components/schemas/named_api_resource'
-    
+
     # Machines
 
     machine:
@@ -1287,6 +1429,284 @@ components:
         move:
           $ref: '#/components/schemas/named_api_resource'
         version_group:
+          $ref: '#/components/schemas/named_api_resource'
+
+    # Moves
+
+    move:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        accuracy:
+          type: integer
+        effect_chance:
+          type: integer
+        pp:
+          type: integer
+        priority:
+          type: integer
+        power:
+          type: integer
+        contest_combos:
+          $ref: '#/components/schemas/contest_combo_sets'
+        contest_type:
+          $ref: '#/components/schemas/named_api_resource'
+        contest_effect:
+          $ref: '#/components/schemas/api_resource'
+        damage_class:
+          $ref: '#/components/schemas/named_api_resource'
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/verbose_effect'
+        effect_changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ability_effect_change'
+        learned_by_pokemon:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/move_flavor_text'
+        generation:
+          $ref: '#/components/schemas/named_api_resource'
+        machines:
+          type: array
+          items:
+            $ref: '#/components/schemas/machine_version_detail'
+        meta:
+          $ref: '#/components/schemas/move_meta_data'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        past_values:
+          type: array
+          items:
+            $ref: '#/components/schemas/past_move_stat_values'
+        stat_changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/move_stat_values'
+        super_contest_effect:
+          $ref: '#/components/schemas/api_resource'
+        target:
+          $ref: '#/components/schemas/named_api_resource'
+        type:
+          $ref: '#/components/schemas/named_api_resource'
+
+    move_ailment:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    move_battle_style:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    move_category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+
+    move_damage_class:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+            
+    move_learn_method:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    move_target:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    contest_combo_sets:
+      type: object
+      properties:
+        normal:
+          $ref: '#/components/schemas/contest_combo_detail'
+        super:
+          $ref: '#/components/schemas/contest_combo_detail'
+
+    contest_combo_detail:
+      type: object
+      properties:
+        use_before:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        use_after:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    ability_effect_change:
+      type: object
+      properties:
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/verbose_effect'
+        version_group:
+          $ref: '#/components/schemas/named_api_resource'
+
+    machine_version_detail:
+      type: object
+      properties:
+        machine:
+          $ref: '#/components/schemas/api_resource'
+        version_group:
+          $ref: '#/components/schemas/named_api_resource'
+
+    move_flavor_text:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+        version_group:
+          $ref: '#/components/schemas/named_api_resource'
+
+    move_meta_data:
+      type: object
+      properties:
+        ailment:
+          $ref: '#/components/schemas/named_api_resource'
+        category:
+          $ref: '#/components/schemas/named_api_resource'
+        min_hits:
+          type: integer
+        max_hits:
+          type: integer
+        min_turns:
+          type: integer
+        max_turns:
+          type: integer
+        drain:
+          type: integer
+        healing:
+          type: integer
+        crit_rate:
+          type: integer
+        ailment_chance:
+          type: integer
+        flinch_chance:
+          type: integer
+        stat_chance:
+          type: integer
+
+    past_move_stat_values:
+      type: object
+      properties:
+        accuracy:
+          type: integer
+        effect_chance:
+          type: integer
+        power:
+          type: integer
+        pp:
+          type: integer
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/verbose_effect'
+        type:
+          $ref: '#/components/schemas/named_api_resource'
+        version_group:
+          $ref: '#/components/schemas/named_api_resource'
+
+    move_stat_values:
+      type: object
+      properties:
+        change:
+          type: integer
+        stat:
           $ref: '#/components/schemas/named_api_resource'
 
   responses:
