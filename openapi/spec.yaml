@@ -484,6 +484,28 @@ paths:
               schema:
                 $ref: '#/components/schemas/region'
 
+  # Machines
+
+  /machine:
+    get:
+      description: 'Get a paginated list of machines'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+                
+  /machine/{id}:
+    get:
+      description: 'Get a specific machine'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific machine
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/machine'
+
 components:
   schemas:
     # Common
@@ -1252,7 +1274,20 @@ components:
           type: integer
         pokemon_species:
           $ref: '#/components/schemas/named_api_resource'
+    
+    # Machines
 
+    machine:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        move:
+          $ref: '#/components/schemas/named_api_resource'
+        version_group:
+          $ref: '#/components/schemas/named_api_resource'
 
   responses:
     named_resource_list:
