@@ -648,6 +648,321 @@ paths:
               schema:
                 $ref: '#/components/schemas/move_target'
 
+  # Pokemon
+
+  /ability:
+    get:
+      description: 'Get a paginated list of ability'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /ability/{id}:
+    get:
+      description: 'Get a specific pokemon ability'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon ability
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ability'
+
+  /characteristic:
+    get:
+      description: 'Get a paginated list of pokemon characteristic'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /characteristic/{id}:
+    get:
+      description: 'Get a specific pokemon characteristic'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon characteristic
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/characteristic'
+
+  /egg-group:
+    get:
+      description: 'Get a paginated list of pokemon egg group'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /egg-group/{id}:
+    get:
+      description: 'Get a specific pokemon egg group'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon egg group
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/egg_group'
+
+  /gender:
+    get:
+      description: 'Get a paginated list of pokemon gender'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /gender/{id}:
+    get:
+      description: 'Get a specific pokemon gender'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon gender
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gender'
+
+  /growth-rate:
+    get:
+      description: 'Get a paginated list of pokemon growth rate'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /growth-rate/{id}:
+    get:
+      description: 'Get a specific pokemon growth rate'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon growth rate
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/growth_rate'
+
+  /nature:
+    get:
+      description: 'Get a paginated list of pokemon nature'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /nature/{id}:
+    get:
+      description: 'Get a specific pokemon nature'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon nature
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/nature'
+
+  /pokeathlon-stat:
+    get:
+      description: 'Get a paginated list of pokeathlon stat'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /pokeathlon-stat/{id}:
+    get:
+      description: 'Get a specific pokeathlon stat'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokeathlon stat
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pokeathlon_stat'
+
+  /pokemon:
+    get:
+      description: 'Get a paginated list of pokemon'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /pokemon/{id}:
+    get:
+      description: 'Get a specific pokemon'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pokemon'
+
+  /pokemon/{id}/encounters:
+    get:
+      description: 'Get a specific pokemons encounters'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemons encounters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/location_area_encounter'
+
+  /pokemon-color:
+    get:
+      description: 'Get a paginated list of pokemon colors'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /pokemon-color/{id}:
+    get:
+      description: 'Get a specific pokemon color'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon color
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pokemon_color'
+
+  /pokemon-form:
+    get:
+      description: 'Get a paginated list of pokemon forms'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /pokemon-form/{id}:
+    get:
+      description: 'Get a specific pokemon form'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon form
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pokemon_form'
+
+  /pokemon-habitat:
+    get:
+      description: 'Get a paginated list of pokemon habitats'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /pokemon-habitat/{id}:
+    get:
+      description: 'Get a specific pokemon habitat'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon habitat
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pokemon_habitat'
+
+  /pokemon-shape:
+    get:
+      description: 'Get a paginated list of pokemon shapes'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /pokemon-shape/{id}:
+    get:
+      description: 'Get a specific pokemon shape'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon shape
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pokemon_shape'
+
+  /pokemon-species:
+    get:
+      description: 'Get a paginated list of pokemon speciess'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /pokemon-species/{id}:
+    get:
+      description: 'Get a specific pokemon species'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon species
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pokemon_species'
+
+  /stat:
+    get:
+      description: 'Get a paginated list of pokemon stat'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /stat/{id}:
+    get:
+      description: 'Get a specific pokemon stat'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon stat
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/stat'
+
+  /type:
+    get:
+      description: 'Get a paginated list of pokemon type'
+      responses:
+        '200':
+          $ref: '#/components/responses/named_resource_list'
+
+  /type/{id}:
+    get:
+      description: 'Get a specific pokemon type'
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+      responses:
+        '200':
+          description: A specific pokemon type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type'
+
 components:
   schemas:
     # Common
@@ -1564,7 +1879,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/name'
-            
+
     move_learn_method:
       type: object
       properties:
@@ -1707,6 +2022,762 @@ components:
         change:
           type: integer
         stat:
+          $ref: '#/components/schemas/named_api_resource'
+
+    # Pokemon
+
+    ability:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        is_main_series:
+          type: boolean
+        generation:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/effect'
+        effect_changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ability_effect_change'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ability_flavor_text'
+        pokemon:
+          type: array
+          items:
+            $ref: '#/components/schemas/ability_pokemon'
+
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: integer
+        gene_modulo:
+          type: integer
+        possible_values:
+          type: array
+          items:
+            type: integer
+        highest_stat:
+          $ref: '#/components/schemas/named_api_resource'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+
+    egg_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    gender:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        pokemon_species_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_species_gender'
+        required_for_evolution:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    growth_rate:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        formula:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/growth_rate_experience_level'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    nature:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        decreased_stat:
+          $ref: '#/components/schemas/named_api_resource'
+        increased_stat:
+          $ref: '#/components/schemas/named_api_resource'
+        hates_flavor:
+          $ref: '#/components/schemas/named_api_resource'
+        likes_flavor:
+          $ref: '#/components/schemas/named_api_resource'
+        pokeathlon_stat_changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/nature_stat_change'
+        move_battle_style_preferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/move_battle_style_preference'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    pokeathlon_stat:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        affecting_natures:
+          $ref: '#/components/schemas/nature_pokeathlon_stat_affect_sets'
+
+    pokemon:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        base_experience:
+          type: integer
+        height:
+          type: integer
+        is_default:
+          type: boolean
+        order:
+          type: integer
+        weight:
+          type: integer
+        abilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_ability'
+        forms:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        game_indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/version_game_index'
+        held_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_held_item'
+        location_area_encounters:
+          type: string
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_move'
+        past_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_type_past'
+        sprites:
+          $ref: '#/components/schemas/pokemon_sprites'
+        species:
+          $ref: '#/components/schemas/named_api_resource'
+        stats:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_stat'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_type'
+    
+    location_area_encounter:
+      type: object
+      properties:
+        location_area:
+          $ref: '#/components/schemas/named_api_resource'
+        version_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/version_encounter_detail'
+
+    pokemon_color:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_form:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        form_order:
+          type: integer
+        is_default:
+          type: boolean
+        is_battle_only:
+          type: boolean
+        is_mega:
+          type: boolean
+        form_name:
+          type: string
+        pokemon:
+          $ref: '#/components/schemas/named_api_resource'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_form_type'
+        sprites:
+          $ref: '#/components/schemas/pokemon_form_sprites'
+        version_group:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        form_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    pokemon_habitat:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_shape:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        awesome_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/awesome_name'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        
+    pokemon_species:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        gender_rate:
+          type: integer
+        capture_rate:
+          type: integer
+        base_happiness:
+          type: integer
+        is_baby:
+          type: boolean
+        is_legendary:
+          type: boolean
+        is_mythical:
+          type: boolean
+        hatch_counter:
+          type: integer
+        has_gender_differences:
+          type: boolean
+        forms_switchable:
+          type: boolean
+        growth_rate:
+          $ref: '#/components/schemas/named_api_resource'
+        pokedex_numbers:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_species_dex'
+        egg_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+        color:
+          $ref: '#/components/schemas/named_api_resource'
+        shape:
+          $ref: '#/components/schemas/named_api_resource'
+        evolves_from_species:
+          $ref: '#/components/schemas/named_api_resource'
+        evolution_chain:
+          $ref: '#/components/schemas/api_resource'
+        habitat:
+          $ref: '#/components/schemas/named_api_resource'
+        generation:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pal_park_encounters:
+          type: array
+          items:
+            $ref: '#/components/schemas/pal_park_encounter_area'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/flavor_text'
+        form_descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/description'
+        genera:
+          type: array
+          items:
+            $ref: '#/components/schemas/genus'
+        varieties:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_species_variety'
+
+    stat:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        is_battle_only:
+          type: boolean
+        affecting_moves:
+          $ref: '#/components/schemas/move_stat_affect_sets'
+        affecting_natures:
+          $ref: '#/components/schemas/nature_stat_affect_sets'
+        characteristics:
+          $ref: '#/components/schemas/api_resource'
+        move_damage_class:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+
+    type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        damage_relations:
+          $ref: '#/components/schemas/type_relations'
+        past_damage_relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_relations_past'
+        game_indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/generation_game_index'
+        generation:
+          $ref: '#/components/schemas/named_api_resource'
+        move_damage_class:
+          $ref: '#/components/schemas/named_api_resource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/name'
+        pokemon:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_pokemon'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/named_api_resource'
+
+    ability_flavor_text:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+        version_group:
+          $ref: '#/components/schemas/named_api_resource'
+
+    ability_pokemon:
+      type: object
+      properties:
+        is_hidden:
+          type: boolean
+        slot:
+          type: integer
+        pokemon:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_species_gender:
+      type: object
+      properties:
+        rate:
+          type: integer
+        pokemon_species:
+          $ref: '#/components/schemas/named_api_resource'
+
+    growth_rate_experience_level:
+      type: object
+      properties:
+        level:
+          type: integer
+        experience:
+          type: integer
+
+    nature_stat_change:
+      type: object
+      properties:
+        max_change:
+          type: integer
+        pokeathlon_stat:
+          $ref: '#/components/schemas/named_api_resource'
+
+    move_battle_style_preference:
+      type: object
+      properties:
+        low_hp_preference:
+          type: integer
+        high_hp_preference:
+          type: integer
+        move_battle_style:
+          $ref: '#/components/schemas/named_api_resource'
+
+    nature_pokeathlon_stat_affect_sets:
+      type: object
+      properties:
+        increase:
+          $ref: '#/components/schemas/nature_pokeathlon_stat_affect'
+        decrease:
+          $ref: '#/components/schemas/nature_pokeathlon_stat_affect'
+
+    nature_pokeathlon_stat_affect:
+      type: object
+      properties:
+        max_change:
+          type: integer
+        nature:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_ability:
+      type: object
+      properties:
+        is_hidden:
+          type: boolean
+        slot:
+          type: integer
+        ability:
+          $ref: '#/components/schemas/named_api_resource'
+
+    version_game_index:
+      type: object
+      properties:
+        game_index:
+          type: integer
+        version:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_held_item:
+      type: object
+      properties:
+        item:
+          $ref: '#/components/schemas/named_api_resource'
+        version_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_held_item_version'
+
+    pokemon_held_item_version:
+      type: object
+      properties:
+        version:
+          $ref: '#/components/schemas/named_api_resource'
+        rarity:
+          type: integer
+    
+    pokemon_move:
+      type: object
+      properties:
+        move:
+          $ref: '#/components/schemas/named_api_resource'
+        version_group_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_move_version'
+
+    pokemon_move_version:
+      type: object
+      properties:
+        move_learn_method:
+          $ref: '#/components/schemas/named_api_resource'
+        version_group:
+          $ref: '#/components/schemas/named_api_resource'
+        level_learned_at:
+          type: integer
+
+    pokemon_type_past:
+      type: object
+      properties:
+        generation:
+          $ref: '#/components/schemas/named_api_resource'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/pokemon_type'
+      
+    pokemon_type:
+      type: object
+      properties:
+        slot:
+          type: integer
+        type:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_sprites:
+      type: object
+      properties:
+        front_default:
+          type: string
+        front_shiny:
+          type: string
+        front_female:
+          type: string
+        front_shiny_female:
+          type: string
+        back_default:
+          type: string
+        back_shiny:
+          type: string
+        back_female:
+          type: string
+        back_shiny_female:
+          type: string
+
+    pokemon_stat:
+      type: object
+      properties:
+        stat:
+          $ref: '#/components/schemas/named_api_resource'
+        effort:
+          type: integer
+        base_stat:
+          type: integer
+
+    version_encounter_detail:
+      type: object
+      properties:
+        version:
+          $ref: '#/components/schemas/named_api_resource'
+        max_chance:
+          type: integer
+        encounter_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/encounter'
+
+    encounter:
+      type: object
+      properties:
+        min_level:
+          type: integer
+        max_level:
+          type: integer
+        condition_values:
+          type: array
+          items: 
+            $ref: '#/components/schemas/named_api_resource'
+        chance:
+          type: integer
+        method:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_form_type:
+      type: object
+      properties:
+        slot:
+          type: integer
+        type:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_form_sprites:
+      type: object
+      properties:
+        front_default:
+          type: string
+        front_shiny:
+          type: string
+        back_default:
+          type: string
+        back_shiny:
+          type: string
+
+    pokemon_species_dex:
+      type: object
+      properties:
+        entry_number:
+          type: integer
+        pokedex:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pal_park_encounter_area:
+      type: object
+      properties:
+        base_score:
+          type: integer
+        rate:
+          type: integer
+        area:
+          $ref: '#/components/schemas/named_api_resource'
+
+    genus:
+      type: object
+      properties:
+        genus:
+          type: string
+        language:
+          $ref: '#/components/schemas/named_api_resource'
+
+    pokemon_species_variety:
+      type: object
+      properties:
+        is_default:
+          type: boolean
+        pokemon:
+          $ref: '#/components/schemas/named_api_resource'
+
+    move_stat_affect_sets:
+      type: object
+      properties:
+        increase:
+          $ref: '#/components/schemas/move_stat_affect'
+        decrease:
+          $ref: '#/components/schemas/move_stat_affect'
+
+    move_stat_affect:
+      type: object
+      properties:
+        change:
+          type: integer
+        move:
+          $ref: '#/components/schemas/named_api_resource'
+
+    nature_stat_affect_sets:
+      type: object
+      properties:
+        increase:
+          $ref: '#/components/schemas/named_api_resource'
+        decrease:
+          $ref: '#/components/schemas/named_api_resource'
+
+    type_relations:
+      type: object
+      properties:
+        no_damage_to:
+          $ref: '#/components/schemas/named_api_resource'
+        half_damage_to:
+          $ref: '#/components/schemas/named_api_resource'
+        double_damage_to:
+          $ref: '#/components/schemas/named_api_resource'
+        no_damage_from:
+          $ref: '#/components/schemas/named_api_resource'
+        half_damage_from:
+          $ref: '#/components/schemas/named_api_resource'
+        double_damage_from:
+          $ref: '#/components/schemas/named_api_resource'
+    
+    type_relations_past:
+      type: object
+      properties:
+        generation:
+          $ref: '#/components/schemas/named_api_resource'
+        damage_relations:
+          $ref: '#/components/schemas/type_relations'
+
+    type_pokemon:
+      type: object
+      properties:
+        slot:
+          type: integer
+        pokemon:
+          $ref: '#/components/schemas/named_api_resource'
+
+    awesome_name:
+      type: object
+      properties:
+        awesome_name:
+          type: string
+        language:
           $ref: '#/components/schemas/named_api_resource'
 
   responses:
