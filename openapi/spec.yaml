@@ -2621,22 +2621,51 @@ components:
     pokemon_sprites:
       type: object
       properties:
-        front_default:
-          type: string
-        front_shiny:
-          type: string
-        front_female:
-          type: string
-        front_shiny_female:
-          type: string
         back_default:
-          type: string
-        back_shiny:
-          type: string
+          type: [string, 'null']
         back_female:
-          type: string
+          type: [string, 'null']
+        back_shiny:
+          type: [string, 'null']
         back_shiny_female:
           type: string
+        front_default:
+          type: [string, 'null']
+        front_female:
+          type: [string, 'null']
+        front_shiny:
+          type: [string, 'null']
+        front_shiny_female:
+          type: [string, 'null']
+        other:
+          type: object
+          properties:
+            dream_world:
+              type: object
+              properties:
+                front_default:
+                  type: [string, 'null']
+                front_female:
+                  type: [string, 'null']
+            home:
+              type: object
+              properties:
+                front_default:
+                  type: [string, 'null']
+                front_female:
+                  type: [string, 'null']
+                front_shiny:
+                  type: [string, 'null']
+                front_shiny_female:
+                  type: [string, 'null']
+            official-artwork:
+              type: object
+              properties:
+                front_default:
+                  type: [string, 'null']
+                front_shiny:
+                  type: [string, 'null']
+
 
     pokemon_stat:
       type: object
