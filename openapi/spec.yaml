@@ -1314,7 +1314,9 @@ components:
           items:
             $ref: '#/components/schemas/evolution_detail'
         evolves_to:
-          $ref: '#/components/schemas/chain_link'
+          type: array
+          items:
+            $ref: '#/components/schemas/chain_link'
 
     evolution_detail:
       type: object
