@@ -17,7 +17,11 @@ paths:
       description: 'Get a paginated list of berries'
       responses:
         '200':
-          $ref: '#/components/responses/named_resource_list'
+          description: A list of named resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/named_api_resource_list'
 
   /berry/{id}:
     get:
